@@ -9,4 +9,5 @@ class MainPage(BasePage):
 
 
     def should_be_login_url(self):
-        self.browser.find_element(By.CSS_SELECTOR, "#login_link_invalid")
+        assert self.is_element_presented(By.CSS_SELECTOR, "#login_link"),\
+            "Login link is not presented"
