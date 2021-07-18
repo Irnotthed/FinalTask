@@ -8,7 +8,7 @@ class ProductPage(BasePage):
     def add_to_cart(self):
         button_add_to_cart = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_CART)
         button_add_to_cart.click()
-        BasePage.solve_quiz_and_get_code(self)
+        self.solve_quiz_and_get_code(self)
 
     def should_not_be_success_message(self):
         assert self.is_not_element_presented(*ProductPageLocators.PRODUCT_MESSAGE_BOX), \
@@ -19,7 +19,7 @@ class ProductPage(BasePage):
             "Success message is presented, and not disappeared"
 
     def should_add_to_cart(self):
-        ProductPage.add_to_cart(self)
+        self.add_to_cart(self)
 
         product_message_box = WebDriverWait(self.browser,10).until(
                 EC.presence_of_element_located((ProductPageLocators.PRODUCT_MESSAGE_BOX)))

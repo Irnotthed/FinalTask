@@ -11,9 +11,16 @@ class BasePage():
         self.url = url
         self.browser.implicitly_wait(timeout)
 
+    def go_to_cart_page(self):
+        button = self.browser.find_element(*BasePageLocators.CART_BUTTON)
+        button.click()
+
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
+
+    def should_be_cart_button(self):
+        assert self.is_element_presented(*BasePageLocators.CART_BUTTON), "Cart button is not presented"
 
     def should_be_login_link(self):
         assert self.is_element_presented(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
