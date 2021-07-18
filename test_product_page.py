@@ -16,7 +16,7 @@ from .pages.basket_page import BasketPage
                                                marks=pytest.mark.xfail),
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
-@pytest.mark.skip(reason="no need to test this")
+@pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser, link):
     url = link
     page = ProductPage(browser, url)
@@ -56,6 +56,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.should_be_login_url()
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     url = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, url)
@@ -65,6 +66,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     login_page.should_be_login_page()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     url = "http://selenium1py.pythonanywhere.com/"
     page = ProductPage(browser, url)
@@ -91,6 +93,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.should_not_be_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         url = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         page = ProductPage(browser, url)
