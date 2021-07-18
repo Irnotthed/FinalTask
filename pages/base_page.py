@@ -22,9 +22,12 @@ class BasePage():
     def should_be_cart_button(self):
         assert self.is_element_presented(*BasePageLocators.CART_BUTTON), "Cart button is not presented"
 
-    def should_be_login_link(self):
+    def should_be_login_url(self):
         assert self.is_element_presented(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
+    def should_be_authorized_user(self):
+        assert self.is_element_presented(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
     def is_element_presented(self, method, element):
         try:
             self.browser.find_element(method, element)
@@ -58,7 +61,7 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
-    def solve_quiz_and_get_code(self):
+    def  solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
