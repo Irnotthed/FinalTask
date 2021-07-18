@@ -22,9 +22,9 @@ class ProductPage(BasePage):
         self.add_to_cart()
 
         product_message_box = WebDriverWait(self.browser,10).until(
-                EC.presence_of_element_located((ProductPageLocators.PRODUCT_MESSAGE_BOX)))
+                EC.presence_of_element_located(ProductPageLocators.PRODUCT_MESSAGE_BOX))
         cart_message_box = WebDriverWait(self.browser,10).until(
-                EC.presence_of_element_located((ProductPageLocators.CART_MESSAGE_BOX)))
+                EC.presence_of_element_located(ProductPageLocators.CART_MESSAGE_BOX))
 
         product_message_text = self.browser.find_element(*ProductPageLocators.PRODUCT_MESSAGE_TEXT).text
         cart_message_text = self.browser.find_element(*ProductPageLocators.CART_MESSAGE_TEXT).text

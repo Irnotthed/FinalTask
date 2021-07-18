@@ -28,6 +28,7 @@ class BasePage():
     def should_be_authorized_user(self):
         assert self.is_element_presented(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      " probably unauthorised user"
+
     def is_element_presented(self, method, element):
         try:
             self.browser.find_element(method, element)

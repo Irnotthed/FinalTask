@@ -7,6 +7,7 @@ class BasePageLocators():
     CART_BUTTON = (By.XPATH, "//span[@class='btn-group']/a")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
+
 class BasketPageLocators():
     HEADER_NAME = (By.TAG_NAME, "h1")
     EMPTY_LABEL = (By.TAG_NAME, "p")
@@ -24,7 +25,6 @@ class LoginPageLocators:
     REGISTRATION_PASSWORD = (By.XPATH, "//input[@name='registration-password1']")
     REGISTRATION_PASSWORD_CONFIRM = (By.XPATH, "//input[@name='registration-password2']")
     REGISTER_BUTTON = (By.XPATH, "//button[@name='registration_submit']")
-
 
 
 class ProductPageLocators():
